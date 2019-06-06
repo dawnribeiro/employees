@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import EmployeesInput from './components/EmployeesInput'
+import EmployeeList from './pages/EmployeeList'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={EmployeesInput} />
+          <Route exact path="/Employees" component={EmployeeList} />
+        </Switch>
+      </Router>
+    )
   }
 }
 
