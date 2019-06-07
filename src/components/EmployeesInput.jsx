@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function EmployeesInput() {
@@ -7,6 +7,20 @@ export default function EmployeesInput() {
   const [jobTitle, setJobTitle] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [email, setEmail] = useState('')
+  
+
+  useEffect(() => {
+    axios
+      .get(
+        'https://sdg-staff-directory-app.herokuapp.com/api/dawnApps/Employees'
+      )
+      .then(resp => {
+        console.log(resp.data)
+      })
+      .then(resp) =>{
+        return employeeList
+      }
+  }, [])
 
   const addEmployee = event => {
     event.preventDefault()
