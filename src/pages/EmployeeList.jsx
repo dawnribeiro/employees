@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { setFlagsFromString } from 'v8';
 
 export default function EmployeeList() {
-  // const [employeeList, setEmployeeList]
+  const [employeeList, setEmployeeList] = useState([])
 
   useEffect(() => {
     axios
@@ -12,27 +11,27 @@ export default function EmployeeList() {
       )
       .then(resp => {
         console.log(resp.data)
+        setEmployeeList(resp.data)
       })
-    // .then(resp) =>{
-    //   return
-    // }
   }, [])
-}
 
-return(
-  <section>
-    <ul>
-      {employeeList.map(employee =>
-      return(
-      <li key={employee.id }>
-        <p>{employee.firstName}</p>
-        <p>{employee.lastName}</p>
-        <p>{employee.jobTitle}</p>
-        <p>{employee.phoneNumber}</p>
-        <p>{employee.email}</p>
-      </li>
-      )}
-     
-    </ul>
-  </section>
-)
+  return (
+    <section>
+      <ul>
+        {employeeList.map(employee => {
+          return (
+            <li key={employee.id}>
+              <p>
+                Name: {employee.firstName} {employee.lastName}
+              </p>
+              <p>Id: {employee.id}</p>
+              <p>Job Title: {employee.jobTitle}</p>
+              <button className="profile-button">Profile</button>
+              <button>Delete</button>
+            </li>
+          )
+        })}
+      </ul>
+    </section>
+  )
+}
