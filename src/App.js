@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import EmployeesInput from './components/EmployeesInput'
 import EmployeeList from './pages/EmployeeList'
+import EmployeePage from './pages/EmployeePage'
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={EmployeesInput} />
           <Route exact path="/Employees" component={EmployeeList} />
+          <Route exact path="/EmployeePage" component={EmployeePage} />
         </Switch>
       </Router>
     )
