@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function EmployeesInput() {
   const [firstName, setFirstName] = useState('')
@@ -28,7 +29,7 @@ export default function EmployeesInput() {
 
   return (
     <>
-      <section>
+      <section className="form-container">
         <form onSubmit={addEmployee}>
           <input
             type="text"
@@ -61,9 +62,10 @@ export default function EmployeesInput() {
             onChange={event => setEmail(event.target.value)}
           />
 
-          <button>Add Employee</button>
+          <button className="add-btn">Add Employee</button>
         </form>
       </section>
+      <Link to="/Employees">See List of Employees</Link>
     </>
   )
 }

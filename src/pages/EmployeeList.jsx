@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function EmployeeList() {
   const [employeeList, setEmployeeList] = useState([])
@@ -17,6 +18,7 @@ export default function EmployeeList() {
 
   return (
     <section>
+      <Link to="/">Add New Employee</Link>
       <ul>
         {employeeList.map(employee => {
           return (
@@ -26,7 +28,9 @@ export default function EmployeeList() {
               </p>
               <p>Id: {employee.id}</p>
               <p>Job Title: {employee.jobTitle}</p>
-              <button className="profile-button">Profile</button>
+              <Link to={`/EmployeePage/${employee.id}`}>
+                <button>Profile</button>
+              </Link>
               <button>Delete</button>
             </li>
           )

@@ -34,3 +34,29 @@ p {
 .profile-button {
   margin: 10px;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+input {
+  width: 12rem;
+  font-size: 1.25rem;
+}
+.add-btn {
+  width: 8rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-container {
+  align-items: center;
+}
+link {
+  style: none;
+}

@@ -1,17 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-export default function EmployeePage() {
+export default function EmployeePage(props) {
+  console.log({ props })
   const [employeeProfile, setEmployeeProfile] = useState([])
+
   useEffect(() => {
     axios
       .get(
-        'https://sdg-staff-directory-app.herokuapp.com/api/{dawnApps}/Employees/{id}'
+        `https://sdg-staff-directory-app.herokuapp.com/api/dawnApps/Employees/${
+          props.id
+        }
+        `
       )
       .then(resp => {
-        console.log(resp.data)
         setEmployeeProfile(resp.data)
+        console.log(resp.data)
+        console.log('heres my data')
       })
-  })
-  return <>maybe</>
+  }, [props.id])
+  return (
+    <section>
+      <ul>
+        {employeeProfile.map(employee => {
+          return (
+            <li key={employee.id}>
+              <p>
+                Name: {employee.firstName} {employee.lastName}
+              </p>
+              <p>Id: {employee.id}</p>
+              <p>Job Title: {employee.jobTitle}</p>
+            </li>
+          )
+        })}
+      </ul>
+      <Link to="/Employees">Back to Employee List</Link>
+      <Link to="/">Add New Employee</Link>
+    </section>
+  )
 }
