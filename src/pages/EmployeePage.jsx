@@ -10,7 +10,7 @@ export default function EmployeePage(props) {
     axios
       .get(
         `https://sdg-staff-directory-app.herokuapp.com/api/dawnApps/Employees/${
-          props.id
+          props.match.params.employeeId
         }
         `
       )
@@ -19,7 +19,7 @@ export default function EmployeePage(props) {
         console.log(resp.data)
         console.log('heres my data')
       })
-  }, [props.id])
+  }, [])
 
   //   axios
   //   .get(
@@ -36,17 +36,14 @@ export default function EmployeePage(props) {
     <section>
       <h2 className="profile">Employee Profile</h2>
       <ul>
-        {employeeProfile.map(employee => {
-          return (
-            <li key={employee.id}>
-              <p>
-                Name: {employee.firstName} {employee.lastName}
-              </p>
-              <p>Id: {employee.id}</p>
-              <p>Job Title: {employee.jobTitle}</p>
-            </li>
-          )
-        })}
+        <li key={employeeProfile.id}>
+          <p>
+            Name: {employeeProfile.firstName} {employeeProfile.lastName}
+          </p>
+          <p>Id: {employeeProfile.id}</p>
+          <p>Job Title: {employeeProfile.jobTitle}</p>
+        </li>
+        )
       </ul>
       <Link to="/Employees">Back to Employee List</Link>
       <Link to="/">Add New Employee</Link>
