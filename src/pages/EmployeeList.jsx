@@ -18,6 +18,7 @@ export default function EmployeeList() {
 
   return (
     <section>
+      <h2 className="employee-list">Employee List</h2>
       <Link to="/">Add New Employee</Link>
       <ul>
         {employeeList.map(employee => {

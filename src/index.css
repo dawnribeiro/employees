@@ -60,3 +60,27 @@ input {
 link {
   style: none;
 }
+
+.header {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: normal;
+  color: #38598b;
+  border-top: solid #38598b 2px;
+  border-bottom: solid #38598b 2px;
+  padding: 10px;
+  width: 350px;
+}
+
+.employee-list {
+  color: #38598b;
+}
+
+.profile {
+  color: #38598b;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+}

@@ -20,8 +20,21 @@ export default function EmployeePage(props) {
         console.log('heres my data')
       })
   }, [props.id])
+
+  //   axios
+  //   .get(
+  //     'https://sdg-staff-directory-app.herokuapp.com/api/dawnApps/Employees/11'
+  //   )
+  //   .then(resp => {
+  //     setEmployeeProfile(resp.data)
+  //     console.log(resp.data)
+  //     console.log('heres my data')
+  //   })
+  // }, [])
+
   return (
     <section>
+      <h2 className="profile">Employee Profile</h2>
       <ul>
         {employeeProfile.map(employee => {
           return (
